@@ -1,9 +1,194 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>Ryan's websbite</title>
-  </head>
-  <body>
-    <h1>hello guys!</h1>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>My Interactive Portfolio</title>
+ <style>
+   :root {
+     --primary-color: #2c3e50;
+     --accent-color: #3498db;
+     --background-color: #f4f4f4;
+     --text-color: #333;
+   }
+
+
+   body {
+     margin: 0;
+     font-family: 'Segoe UI', sans-serif;
+     background-color: var(--background-color);
+     color: var(--text-color);
+     transition: background-color 0.3s, color 0.3s;
+   }
+
+
+   header {
+     background-color: var(--primary-color);
+     color: white;
+     padding: 1rem;
+     text-align: center;
+   }
+
+
+   nav {
+     margin-top: 0.5rem;
+   }
+
+
+   nav a {
+     color: white;
+     margin: 0 10px;
+     text-decoration: none;
+   }
+
+
+   main {
+     padding: 2rem;
+   }
+
+
+   .portfolio-section {
+     display: flex;
+     flex-direction: column;
+     gap: 1.5rem;
+   }
+
+
+   .portfolio-section img {
+     width: 100%;
+     max-width: 500px;
+     border-radius: 10px;
+     transition: transform 0.3s ease;
+   }
+
+
+   .portfolio-section img:hover {
+     transform: scale(1.05);
+   }
+
+
+   footer {
+     background-color: var(--primary-color);
+     color: white;
+     text-align: center;
+     padding: 1rem;
+   }
+
+
+   form {
+     margin-top: 2rem;
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+     max-width: 500px;
+   }
+
+
+   input, textarea, button {
+     padding: 0.7rem;
+     border-radius: 5px;
+     border: 1px solid #ccc;
+     font-size: 1rem;
+   }
+
+
+   button {
+     background-color: var(--accent-color);
+     color: white;
+     border: none;
+     cursor: pointer;
+   }
+
+
+   button:hover {
+     background-color: #2980b9;
+   }
+
+
+   @media (max-width: 768px) {
+     .portfolio-section {
+       flex-direction: column;
+     }
+   }
+
+
+   .dark-mode {
+     background-color: #1a1a1a;
+     color: #f4f4f4;
+   }
+ </style>
+</head>
+<body>
+ <header>
+   <h1>My Tech Portfolio</h1>
+   <nav>
+     <a href="#about">About</a>
+     <a href="#projects">Projects</a>
+     <a href="#contact">Contact</a>
+   </nav>
+ </header>
+
+
+ <main>
+   <section id="about" class="portfolio-section">
+     <h2>About Me</h2>
+     <p>I’m a tech enthusiast passionate about web development and sustainability. I love building interactive web applications and exploring emerging technologies.</p>
+     <img src="https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6430/6430657_sd.jpg" alt="Profile Photo" />
+   </section>
+
+
+   <section id="projects" class="portfolio-section">
+     <h2>Projects</h2>
+     <p>Explore my recent work on GitHub and CodePen.</p>
+     <ul>
+       <li><a href="https://github.com/" target="_blank">GitHub Portfolio</a></li>
+       <li><a href="https://codepen.io/" target="_blank">CodePen Demos</a></li>
+     </ul>
+   </section>
+
+
+   <section id="contact">
+     <h2>Contact Me</h2>
+     <form id="contactForm">
+       <input type="text" id="name" placeholder="Your Name" required />
+       <input type="email" id="email" placeholder="Your Email" required />
+       <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+       <button type="submit">Send Message</button>
+     </form>
+   </section>
+   <button onclick="toggleDarkMode()" style="margin-top:2rem">Toggle Dark Mode</button>
+ </main>
+
+
+ <footer>
+   <p>Contact: myemail@example.com | &copy; 2025 My Portfolio</p>
+ </footer>
+
+
+ <script>
+   // Form Validation
+   document.getElementById("contactForm").addEventListener("submit", function (e) {
+     e.preventDefault();
+     const name = document.getElementById("name").value.trim();
+     const email = document.getElementById("email").value.trim();
+     const message = document.getElementById("message").value.trim();
+
+
+     if (!name || !email || !message) {
+       alert("Please fill out all fields.");
+       return;
+     }
+
+
+     alert("Thank you for your message, " + name + "!");
+     document.getElementById("contactForm").reset();
+   });
+
+
+   // Dark Mode Toggle
+   function toggleDarkMode() {
+     document.body.classList.toggle("dark-mode");
+   }
+ </script>
+</body>
 </html>
